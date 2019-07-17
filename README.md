@@ -1,4 +1,4 @@
-# habitos-de-estudio-app
+# proyectoisof
 
 ## Project setup
 ```
