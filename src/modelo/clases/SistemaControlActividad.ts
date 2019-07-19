@@ -1,5 +1,6 @@
 import { Padre } from './Padre';
 import { Estudiante } from './Estudiante';
+import { ActividadAcademica } from './ActividadAcademica';
 
 export class SistemaNotificacion{
 

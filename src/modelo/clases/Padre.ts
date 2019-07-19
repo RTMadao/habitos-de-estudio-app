@@ -1,21 +1,18 @@
 import {Estudiante} from './Estudiante';
 import { ActividadAcademica } from './ActividadAcademica';
+import { Usuario } from './Usuario';
 
-export class Padre{
-    private nombre: String;
-    private nombreUsuario: String;
-    private contrasena: String;
-    private listaHijos: Array<Estudiante>;
+export class Padre extends Usuario{
+    
+    private _listaHijos: Array<Estudiante>;
     
     constructor(nombre: String, nombreUsuario: String, contrasena: String){
-        this.nombre=nombre;
-        this.nombreUsuario=nombreUsuario;
-        this.contrasena=contrasena;
-        this.listaHijos=new Array<Estudiante>();
+        super(nombre,nombreUsuario,contrasena);
+        this._listaHijos=new Array<Estudiante>();
     }
 
     public registrarHijo(nombre: String, nombreUsuario: String, contrasena: String){
-        this.listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, this.nombreUsuario))
+        this._listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, super.nombreUsuario))
     }
 
     public eliminarActividadAcademica(id:number): boolean{
