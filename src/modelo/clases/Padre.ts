@@ -1,4 +1,5 @@
 import {Estudiante} from './Estudiante';
+import { ActividadAcademica } from './ActividadAcademica';
 
 export class Padre{
     private nombre: String;
@@ -17,23 +18,26 @@ export class Padre{
         this.listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, this.nombreUsuario))
     }
 
-    public eliminarActividadAcademica(id:number){
+    public eliminarActividadAcademica(id:number): boolean{
+        return true;
+    }
+
+    public modificarActividadAcademica(id:number): boolean{
+        return true;
 
     }
 
-    public modificarActividadAcademica(id:number){
+    public listarActividadesEstudiante(estudiante:Estudiante): Array<ActividadAcademica>{
+        return [];
+    }
+
+    public eliminarNotificacion(id:number): boolean{
+        return true;
 
     }
 
-    public listarNoActividadesEstudiante(estudiante:Estudiante){
-        
-    }
-
-    public eliminarNotificacion(id:number){
-
-    }
-
-    public listarNotificaciones(){
+    public listarNotificaciones(): boolean{
+        return true;
         
     }
 }

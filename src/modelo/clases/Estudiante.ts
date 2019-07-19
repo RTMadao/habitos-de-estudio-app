@@ -16,19 +16,23 @@ export class Estudiante{
         this.listaActividades=new Array<ActividadAcademica>();
     }
 
-    public anadirNotificacion(descripcion:String,fechaEnviado:Date){
+    public anadirNotificacion(descripcion:String,fechaEnviado:Date): boolean{
+        return true;
 
     }
 
-    public listarNoActividadAcademica(){
+    public listarActividadAcademica(): Array<ActividadAcademica>{
+        return [];
         
     }
 
-    public anadirActividadAcademica(estado:String,tarea:String,materia:String,fechaEntrega:Date){
+    public anadirActividadAcademica(estado:String,tarea:String,materia:String,fechaEntrega:Date): boolean{
+        return true;
 
     }
 
-    public marcarActividadRealizada(id: number){
+    public marcarActividadRealizada(id: number): boolean{
+        return true;
         
     }
 }
