@@ -1,4 +1,7 @@
-export class Usuario{
+import { ActividadAcademica } from './ActividadAcademica';
+import { Recomendacion } from './Recomendacion';
+
+export abstract class Usuario{
     private _nombre: String;
     private _nombreUsuario: String;
     private _contrasena: String;
@@ -12,4 +15,14 @@ export class Usuario{
     get nombreUsuario(): String{
         return this.nombreUsuario;
     }
+
+    get nombre(): String{
+        return this.nombreUsuario;
+    }
+
+    get contrasena(): String{
+        return this.nombreUsuario;
+    }
+
+    abstract listarRecomendaciones(escenarioUso: String): Array<Recomendacion>
 }
