@@ -1,6 +1,7 @@
 import {Estudiante} from './Estudiante';
 import { ActividadAcademica } from './ActividadAcademica';
 import { Usuario } from './Usuario';
+import { Recomendacion } from './Recomendacion';
 
 export class Padre extends Usuario{
     
@@ -36,5 +37,9 @@ export class Padre extends Usuario{
     public listarNotificaciones(): boolean{
         return true;
         
+    }
+
+    public listarRecomendaciones(escenarioUso: String): Array<Recomendacion>{
+        return [];
     }
 }
