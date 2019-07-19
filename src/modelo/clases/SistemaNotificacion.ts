@@ -1,5 +1,6 @@
 import { Padre } from './Padre';
 import { Estudiante } from './Estudiante';
+import { Notificacion } from './Notificacion';
 
 export class SistemaNotificacion{
 
@@ -13,7 +14,8 @@ export class SistemaNotificacion{
 
     }
 
-    public listarNotificaciones(receptor:Padre){
+    public listarNotificaciones(receptor:Padre): Array<Notificacion>{
+        return [];
         
     }
 }

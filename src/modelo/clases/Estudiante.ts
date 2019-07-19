@@ -1,5 +1,6 @@
 import {ActividadAcademica} from './ActividadAcademica';
 import { Padre } from './Padre';
+import { Notificacion } from './Notificacion';
 
 export class Estudiante{
     private nombre: String;
