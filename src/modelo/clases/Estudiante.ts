@@ -1,5 +1,6 @@
 import {ActividadAcademica} from './ActividadAcademica';
 import { Padre } from './Padre';
+import { Notificacion } from './Notificacion';
 
 export class Estudiante{
     private nombre: String;
@@ -20,8 +21,8 @@ export class Estudiante{
 
     }
 
-    public listarNoActividadAcademica(){
-        
+    public listarNoActividadAcademica(): Array<Notificacion>{
+        return [];
     }
 
     public anadirActividadAcademica(estado:String,tarea:String,materia:String,fechaEntrega:Date){
