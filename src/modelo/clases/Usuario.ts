@@ -1,7 +1,7 @@
 import { ActividadAcademica } from './ActividadAcademica';
 import { Recomendacion } from './Recomendacion';
 
-export abstract class Usuario{
+export  class Usuario{
     private _nombre: String;
     private _nombreUsuario: String;
     private _contrasena: String;
@@ -24,5 +24,7 @@ export abstract class Usuario{
         return this.nombreUsuario;
     }
 
-    abstract listarRecomendaciones(escenarioUso: String): Array<Recomendacion>
+    public listarRecomendaciones(escenarioUso: String): Array<Recomendacion>{
+        return [];
+    }
 }
