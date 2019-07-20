@@ -3,16 +3,25 @@ import { Padre } from './Padre';
 import { Notificacion } from './Notificacion';
 import { Usuario } from './Usuario';
 import { Recomendacion } from './Recomendacion';
+import { SistemaControlActividad } from './SistemaControlActividad';
 
 export class Estudiante extends Usuario{
     
-    private padre: String;
-    private listaActividades: Array<ActividadAcademica>;
+    private _padre: String;
+    private _listaActividades: Array<ActividadAcademica>;
 
     constructor(nombre: String, nombreUsuario: String, contrasena: String, padre: String){
         super(nombre,nombreUsuario,contrasena);
-        this.padre=padre
-        this.listaActividades=new Array<ActividadAcademica>();
+        this._padre=padre
+        this._listaActividades=new Array<ActividadAcademica>();
+    }
+
+    get padre(){
+        return this._padre;
+    }
+
+    get listaActividades(){
+        return this._listaActividades;
     }
 
     public anadirNotificacion(descripcion:String,fechaEnviado:Date): boolean{
@@ -25,9 +34,8 @@ export class Estudiante extends Usuario{
         
     }
 
-    public anadirActividadAcademica(estado:String,tarea:String,materia:String,fechaEntrega:Date): boolean{
-        return true;
-
+    public anadirActividadAcademica(tarea: ActividadAcademica): void{
+        this._listaActividades.push(tarea);
     }
 
     public marcarActividadRealizada(id: number): boolean{

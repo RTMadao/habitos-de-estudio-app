@@ -2,11 +2,11 @@ import { Padre } from './Padre';
 import { Estudiante } from './Estudiante';
 import { ActividadAcademica } from './ActividadAcademica';
 
-export class SistemaNotificacion{
+export class SistemaControlActividad{
 
-    public anadirActividadAcademica(estado:String,tarea:String,materia:String,fechaEntrega:Date): boolean{
-        return true;
-
+    public anadirActividadAcademica(tarea:String,materia:String,fechaEntrega:Date, estudiante: Estudiante): void{
+        let actividad = new ActividadAcademica(tarea,materia,"pendiente",fechaEntrega);
+        estudiante.anadirActividadAcademica(actividad);
     }
 
     public eliminarActividadAcademica(id:number): boolean{
