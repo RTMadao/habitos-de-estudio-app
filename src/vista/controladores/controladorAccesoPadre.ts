@@ -25,6 +25,4 @@ export class ControladorAccesoPadre{
     public cerrarSesion(){
 
     }
-
-
 }

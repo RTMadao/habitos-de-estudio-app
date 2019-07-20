@@ -1,6 +1,5 @@
 import { Padre } from '../clases/Padre';
 import { PadrePersistencia } from '@/persistencia/padrePersistencia';
-import { EstudiantePersistencia } from '@/persistencia/estudiantePersistencia';
 
 export class ControladorPadre{
     private _padrePersistencia: PadrePersistencia;
