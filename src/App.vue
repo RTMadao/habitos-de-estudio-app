@@ -1,12 +1,19 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-view />
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import inicio from './vista/views/inicio.vue'
+export default Vue.extend({
+  
+})
+</script>
+
 
 <style>
 #app {

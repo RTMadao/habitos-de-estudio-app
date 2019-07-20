@@ -38,8 +38,4 @@ export class Padre extends Usuario{
         return true;
         
     }
-
-    public listarRecomendaciones(escenarioUso: String): Array<Recomendacion>{
-        return [];
-    }
 }
