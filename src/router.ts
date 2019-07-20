@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import inicio from './vista/views/inicio.vue'
+import index from './vista/views/index.vue'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'inicio',
-      component: inicio
+      name: 'index',
+      component: index
     },
 //    {
 //      path: '/about',
