@@ -2,11 +2,11 @@
     <v-container>
         <v-toolbar app>
             <v-spacer></v-spacer>
-            <v-btn flat>Crear Cuenta</v-btn>
+            <router-link class="color" to="/crearCuenta"><v-btn flat>Crear Cuenta</v-btn></router-link>
             <span> | </span>
             <v-btn flat>Inicia sesión</v-btn>
         </v-toolbar>
-        <v-card xs11 mt-4>
+        <v-card xs11 class="elevation-14" style="margin-top:16%">
             <v-card-title>
                 <v-layout justify-center align-center mt-2><v-icon class="fas fa-book-open" style="font-size:110px; color:black" /></v-layout>
             </v-card-title>
