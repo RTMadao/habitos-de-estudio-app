@@ -6,8 +6,11 @@ export class ControladorActividadAcademica{
 
     constructor(){this._controladorActividadAcademicaModelo=new ControladorActividadAcademicaModelo}
 
-    public anadirActividadAcademica(tarea: String, materia: String, estado: String, fechaEntrega: Date, nombre: String): void{
-        let actividad;
-        this._controladorActividadAcademicaModelo.anadirActividadAcademica(tarea,materia,fechaEntrega,nombre);
+    public anadirActividadAcademica(tarea: String, materia: String, fechaEntrega: Date, nombreEstudiante: String): void{
+        let listActividades = this._controladorActividadAcademicaModelo.anadirActividadAcademica(tarea,materia,fechaEntrega,nombreEstudiante);
+    }
+
+    public modificarActividadAcademica(id: number, listCampos: Array<String>, listValores: Array<String>, nombreEstudiante: string){
+
     }
 }
