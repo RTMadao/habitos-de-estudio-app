@@ -22,7 +22,7 @@ export class ControladorActividadAcademicaModelo{
         let estudiante = this._estudiantePersistencia.buscar(nombreEstudiante);
         this._sistemaControlActividad.anadirActividadAcademica(tarea,materia,fechaEntrega,estudiante);
         this._estudiantePersistencia.actualizar(estudiante, "listaActividades");
-        return estudiante.listaActividades;
+        return estudiante.listarActividadAcademica();
     }
 
     public modificarActividadAcademica(): boolean{
