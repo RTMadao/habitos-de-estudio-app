@@ -7,25 +7,22 @@
         <v-card class="elevation-14" style="height:90%; margin-top:50px; background-color:#ccffff">
             <v-layout>
                 <v-flex xs6>
-                    <v-carousel hide-controls xs6 >
-                        <v-carousel-item> <v-img src="https://images.justwatch.com/poster/19530374/s592" alt="img 1" /> </v-carousel-item>
-                        <v-carousel-item> <v-img src="https://images-na.ssl-images-amazon.com/images/I/81%2BB3qb13PL._SY679_.jpg" alt="img 2" /> </v-carousel-item>
-                        <v-carousel-item> <v-img src="https://d3ieicw58ybon5.cloudfront.net/ex/350.484/shop/product/bc56f3ef2f984fa4b68f9c66ba29303d.jpg" alt="img 3" /> </v-carousel-item>
+                    <v-carousel hide-controls xs6>
+                        <v-carousel-item> <v-img src="https://pm1.narvii.com/6724/16d21c3505e31896095ecfd5571ef41d6f6393afv2_hq.jpg" alt="img 1" /> </v-carousel-item>
+                        <v-carousel-item> <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3mwG33FEWtbHMI1IykWXmL3j7Fnkc6BRsA6ci3wDJekGUAEdo" alt="img 2" /> </v-carousel-item>
+                        <v-carousel-item> <v-img src="https://www.huevadas.net/hacer/memes-y-graficos/uploads/memes/a2cb2cb146f1c055430cfb161f4c2bc0/bMhRDG.jpg" alt="img 3" /> </v-carousel-item>
                     </v-carousel>
                 </v-flex>
                 <v-flex xs6 justify-center align-center>
-                    <div class="formRegistro">
+                    <div class="formSesion">
                         <div class="formcontainer">
-                            <div style="margin-top:20px" class="headline"> <v-icon class="fas fa-user" style="color:black"/> CREA UNA CUENTA</div> <br>
-                            <input type="text" placeholder="Nombre"> <br>
+                            <div style="margin-top:20px" class="headline"> <v-icon class="fas fa-user" style="color:black"/> INICIA SESIÓN </div> <br>
                             <input type="text" placeholder="Nombre de Usuario"> <br>
                             <input type="password" placeholder="Contraseña"> <br>
-                            <input type="password" placeholder="Confirmar Contraseña"> <br>
-                            <input class="button" type="submit" value="Crear Cuenta"> <br>
-                            <router-link class="color" to="/iniciarSesion"><div style="color:black"> ¿Ya tienes cuenta? ¡Inicie sesion aquí! </div> </router-link>
+                            <input class="button" type="submit" value="Entrar"> <br>
+                            <router-link class="color" to="/crearCuenta"><div style="color:black"> ¿No tienes cuenta? ¡Crea una aquí! </div> </router-link>
                         </div>
                     </div>
-                    
                 </v-flex>
             </v-layout>
         </v-card>
@@ -35,15 +32,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-export default class crearCuenta extends Vue {
-    
-
+export default class iniciarSesion extends Vue {
 
 }
 </script>
-
 <style scoped>
-.formRegistro{
+.formSesion{
     height:90%;
     display: flex;
     justify-content: center;
