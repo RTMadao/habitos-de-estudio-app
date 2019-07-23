@@ -4,18 +4,25 @@ import { Notificacion } from './Notificacion';
 
 export class SistemaNotificacion{
 
-    public anadirNotificacion(descripcion:String,fechaEnviado:Date,emisor:Estudiante, receptor:Padre): boolean{
-        return true;
-
+    private _listaNotificaciones:Array<Notificacion>;
+    
+    constructor()
+    constructor(lista: Array<Notificacion>)
+    constructor(lista?: Array<Notificacion>){
+        if(lista === undefined){
+            this._listaNotificaciones = new Array<Notificacion>();
+        }else{
+            this._listaNotificaciones = lista;
+        }
     }
 
-    public eliminarNotificacion(id:number): boolean{
-        return true;
+    public anadirNotificacion(descripcion:String,fechaEnviado:Date,emisor:Estudiante, receptor:Padre): void{
+    }
 
+    public eliminarNotificacion(id:number): void{
     }
 
     public listarNotificaciones(receptor:Padre): Array<Notificacion>{
-        return [];
-        
+        return this._listaNotificaciones;
     }
 }

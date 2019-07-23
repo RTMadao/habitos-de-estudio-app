@@ -36,6 +36,8 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 export default class crearCuenta extends Vue {
+    
+
 
 }
 </script>

@@ -1,41 +1,21 @@
 import {Estudiante} from './Estudiante';
-import { ActividadAcademica } from './ActividadAcademica';
-import { Usuario } from './Usuario';
-import { Recomendacion } from './Recomendacion';
 
-export class Padre extends Usuario{
-    
+export class Padre{
+    private _id: String;
+    private _nombre: String;
+    private _nombreUsuario: String;
+    private _contrasena: String;
     private _listaHijos: Array<Estudiante>;
     
-    constructor(nombre: String, nombreUsuario: String, contrasena: String){
-        super(nombre,nombreUsuario,contrasena);
+    constructor(id: String, nombre: String, nombreUsuario: String, contrasena: String){
+        this._id=id;
+        this._nombre=nombre;
+        this._nombreUsuario=nombreUsuario;
+        this._contrasena=contrasena;
         this._listaHijos=new Array<Estudiante>();
     }
 
-    public registrarHijo(nombre: String, nombreUsuario: String, contrasena: String){
-        this._listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, super.nombreUsuario))
-    }
-
-    public eliminarActividadAcademica(id:number): boolean{
-        return true;
-    }
-
-    public modificarActividadAcademica(id:number): boolean{
-        return true;
-
-    }
-
-    public listarActividadesEstudiante(estudiante:Estudiante): Array<ActividadAcademica>{
-        return [];
-    }
-
-    public eliminarNotificacion(id:number): boolean{
-        return true;
-
-    }
-
-    public listarNotificaciones(): boolean{
-        return true;
-        
+    public registrarHijo(nombre: String, nombreUsuario: String, contrasena: String): void{
+        this._listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, nombreUsuario))
     }
 }

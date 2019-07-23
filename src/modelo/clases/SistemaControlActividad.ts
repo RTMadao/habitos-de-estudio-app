@@ -1,31 +1,26 @@
-import { Padre } from './Padre';
 import { Estudiante } from './Estudiante';
 import { ActividadAcademica } from './ActividadAcademica';
 
 export class SistemaControlActividad{
 
     public anadirActividadAcademica(tarea:String,materia:String,fechaEntrega:Date, estudiante: Estudiante): void{
-        let actividad = new ActividadAcademica(tarea,materia,"pendiente",fechaEntrega);
-        estudiante.anadirActividadAcademica(actividad);
+        let codigo =  estudiante.listarActividadAcademica().length;
+        let id = estudiante.id +"A"+ codigo;
+        estudiante.listarActividadAcademica().push(new ActividadAcademica(id,tarea,materia,'pendiente',fechaEntrega));
     }
 
-    public eliminarActividadAcademica(id:number): boolean{
-        return true;
-
+    public eliminarActividadAcademica(actividad: ActividadAcademica, estudiante: Estudiante): void{
+        let indice = estudiante.listarActividadAcademica().indexOf(actividad);
+        estudiante.listarActividadAcademica().
     }
 
-    public modificarActividadAcademica(id:number): boolean{
-        return true;
-
+    public modificarActividadAcademica(id:number, estudiante: Estudiante, tarea:String,materia:String,fechaEntrega:Date): void{
     }
 
     public listarActividadAcademica(estudiante:Estudiante): Array<ActividadAcademica>{
-        return [];
-        
+        return [];   
     }
 
-    public marcarActividadRealizada(id: number): boolean{
-        return true;
-
+    public marcarActividadRealizada(id: number): void{
     }
 }

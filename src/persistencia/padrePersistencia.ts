@@ -5,7 +5,7 @@ export class PadrePersistencia{
         return true;
     }
     public buscar(nombreUsuario: String): Padre{
-        return new Padre("","","");
+        return new Padre("","","","");
     }
     public autentificar(nombreUsuario:String,contrasena:String): boolean{
         return true;
