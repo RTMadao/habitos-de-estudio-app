@@ -2,12 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from './vista/views/index.vue'
 import crearCuenta from './vista/views/crearCuenta.vue'
+import iniciarSesion from './vista/views/iniciarSesion.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+   /* {
       path: '*',
       redirect:'/index'
     },
@@ -24,7 +25,13 @@ export default new Router({
       path:'/crearCuenta',
       name: 'crearCuenta',
       component: crearCuenta
+    },*/
+    {
+      path:'/',
+      name:'iniciarSesion',
+      component: iniciarSesion
     }
+
 //    {
 //      path: '/about',
 //      name: 'about',

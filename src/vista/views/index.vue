@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-toolbar app>
+        <v-toolbar style="background-color:#0099cc" app>
             <v-spacer></v-spacer>
             <router-link class="color" to="/crearCuenta"><v-btn flat>Crear Cuenta</v-btn></router-link>
             <span> | </span>
