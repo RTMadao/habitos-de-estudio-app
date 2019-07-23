@@ -22,4 +22,8 @@ export class Padre{
     public get id(){
         return this._id;
     }
+
+    public get listaHijos(){
+        return this._listaHijos;
+    }
 }

@@ -19,5 +19,8 @@ export class PadreController {
         this._sistemaActividades = new SistemaControlActividad();
     }
 
-    
+    public registrarHijo(nombre:String,nombreUsuario:String,contrasena:String){
+        this._padre.registrarHijo(nombre,nombreUsuario,contrasena);
+        this._persistenciaPadre.actualizar(this._padre);
+    }
 }

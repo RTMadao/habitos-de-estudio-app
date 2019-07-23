@@ -1,6 +1,10 @@
 <template>
     <v-container justify-center align-center>
-        <v-toolbar app style=" background-color:#0099cc">
+        <v-toolbar app v-if="esPadre === true"  style=" background-color:#0099cc">
+            <v-icon class="fas fa-book-open" style="font-size:30px; color:#ffcc33" />
+            <v-spacer></v-spacer>
+        </v-toolbar>
+        <v-toolbar app v-else style=" background-color:#43A638">
             <v-icon class="fas fa-book-open" style="font-size:30px; color:#ffcc33" />
             <v-spacer></v-spacer>
         </v-toolbar>
@@ -33,7 +37,9 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 export default class iniciarSesion extends Vue {
-
+    data(){
+        let esPadre=false;
+    }
 }
 </script>
 <style scoped>
