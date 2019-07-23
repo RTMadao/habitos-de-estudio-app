@@ -19,4 +19,8 @@ export class Estudiante{
     public listarActividadAcademica(): Array<ActividadAcademica>{
         return this._listaActividades;
     }
+
+    public get id(){
+        return this._id;
+    }
 }
