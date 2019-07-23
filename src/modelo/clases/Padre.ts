@@ -18,4 +18,8 @@ export class Padre{
     public registrarHijo(nombre: String, nombreUsuario: String, contrasena: String): void{
         this._listaHijos.push(new Estudiante(nombre, nombreUsuario, contrasena, nombreUsuario))
     }
+
+    public get id(){
+        return this._id;
+    }
 }

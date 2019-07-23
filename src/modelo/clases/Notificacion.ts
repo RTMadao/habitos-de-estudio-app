@@ -3,17 +3,29 @@ import { Padre } from './Padre';
 
 export class Notificacion{
 
-    private id:number;
+    private _id:String;
     private descripcion:String;
     private fechaEnviado:Date;
     private emisor:Estudiante;
-    private receptor:Padre;
+    private _receptor:Padre;
 
-    constructor(id:number,descripcion:String,fechaEnviado:Date,emisor:Estudiante, receptor:Padre){
-        this.id = id;
+    constructor(id:String,descripcion:String,fechaEnviado:Date,emisor:Estudiante, receptor:Padre){
+        this._id = id;
         this.descripcion = descripcion;
         this.fechaEnviado = fechaEnviado;
         this.emisor = emisor;
-        this.receptor = receptor;
+        this._receptor = receptor;
+    }
+
+    public get id(){
+        return this._id;
+    }
+
+    public set id(cod: String){
+        this._id=cod;
+    }
+
+    public get receptor(){
+        return this._receptor;
     }
 }

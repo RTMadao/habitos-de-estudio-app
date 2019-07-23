@@ -1,16 +1,15 @@
-import { ControladorActividadAcademicaModelo } from '@/modelo/controladores/controladorActividadAcademica';
+import { PadreController } from '@/modelo/controladores/PadreController';
+import { EstudianteController } from '@/modelo/controladores/EstudianteController';
 
 export class ControladorActividadAcademica{
 
-    private _controladorActividadAcademicaModelo: ControladorActividadAcademicaModelo;
+    private _logicaPadre: PadreController;
+    private _logicaEstudiante: EstudianteController;
 
-    constructor(){this._controladorActividadAcademicaModelo=new ControladorActividadAcademicaModelo}
-
-    public anadirActividadAcademica(tarea: String, materia: String, fechaEntrega: Date, nombreEstudiante: String): void{
-        let listActividades = this._controladorActividadAcademicaModelo.anadirActividadAcademica(tarea,materia,fechaEntrega,nombreEstudiante);
+    constructor(cod: String){
+        this._logicaEstudiante = new EstudianteController();
+        this._logicaPadre = new PadreController(cod);
     }
 
-    public modificarActividadAcademica(id: number, listCampos: Array<String>, listValores: Array<String>, nombreEstudiante: string){
-
-    }
+    
 }
