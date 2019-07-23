@@ -9,7 +9,6 @@ export class ControladorActividadAcademica{
     constructor(cod: String){
         this._logicaEstudiante = new EstudianteController();
         this._logicaPadre = new PadreController(cod);
-    }
-
+    }   
     
 }
