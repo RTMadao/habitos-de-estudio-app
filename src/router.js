@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import index from './views/views/index.vue'
 import crearCuenta from './views/views/crearCuenta.vue'
 import iniciarSesion from './views/views/iniciarSesion.vue'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
