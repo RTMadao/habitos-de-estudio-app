@@ -8,7 +8,7 @@ export default class EstudiantePersistencia{
 
     }
     autenticar(nombreUsuario,contrasena){
-
+        return estudiante;
     }
     actualizar(estudiante=Estudiante){
 

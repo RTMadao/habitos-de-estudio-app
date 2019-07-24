@@ -10,8 +10,7 @@ export default class UsuarioController{
 
     registrarPadre(nombre,nombreUsuario,contrasena){
         let cod = this._padrePersistencia.cantidadPadres();
-        this._padrePersistencia.guardar(new Padre(cod,nombre,nombreUsuario,contrasena));
-        return true;
+        return this._padrePersistencia.guardar(new Padre(cod,nombre,nombreUsuario,contrasena));
     }
     autenticarPadre(nombreUsuario,contrasena){
         return this._padrePersistencia.autenticar(nombreUsuario,contrasena);

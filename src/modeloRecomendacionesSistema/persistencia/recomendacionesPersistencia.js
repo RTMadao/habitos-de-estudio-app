@@ -1,5 +1,5 @@
 export default class RecomendacionesPersistencia{
-    listarrecomendaciones(escenarioUso){
+    listarRecomendaciones(escenarioUso){
 
     }
 }

@@ -8,7 +8,7 @@ export default class PadrePersistencia{
 
     }
     autenticar(nombreUsuario,contrasena){
-
+        return padre;
     }
     actualizar(padre=Padre){
 

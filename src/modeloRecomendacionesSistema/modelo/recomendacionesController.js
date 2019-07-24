@@ -7,6 +7,6 @@ export default class RecomendacionesController{
     }
     
     listarRecomendaciones(escenarioUso){
-        return this._recomendacionesPersistencia.listarrecomendaciones(escenarioUso);
+        return this._recomendacionesPersistencia.listarRecomendaciones(escenarioUso);
     }
 }
