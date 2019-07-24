@@ -32,15 +32,12 @@
     </v-container>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-
-export default class crearCuenta extends Vue {
+<script>
+export default {
     
-
-
 }
 </script>
+
 
 <style scoped>
 .formRegistro{
