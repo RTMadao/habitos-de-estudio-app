@@ -18,13 +18,8 @@
     </v-container>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-
-export default class inicio extends Vue {}
+<script>
+export default {
+    
+}
 </script>
-
-
-<style>
-
-</style>

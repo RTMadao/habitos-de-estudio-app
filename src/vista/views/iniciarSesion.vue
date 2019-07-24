@@ -36,7 +36,7 @@
     </v-container>
 </template>
 
-<script lang="ts">
+<!--<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
 export default class iniciarSesion extends Vue {
@@ -56,7 +56,15 @@ export default class iniciarSesion extends Vue {
         this.esPadre = b;
     }
 }
+</script> -->
+
+<script>
+export default {
+    
+}
 </script>
+
+
 <style scoped>
 .formSesion{
     height:90%;
