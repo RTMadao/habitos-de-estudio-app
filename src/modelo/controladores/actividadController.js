@@ -1,4 +1,4 @@
-import SistemaControlActividad from "../model/sistemaControlActividad";
+import SistemaControlActividad from "../logica/sistemaControlActividad";
 import EstudiantePersistencia from "../../persistencia/estudiantePersistencia";
 
 export default class ActividadController{
