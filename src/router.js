@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from './views/views/index.vue'
-import crearCuenta from './views/views/crearCuenta.vue'
-import iniciarSesion from './views/views/iniciarSesion.vue'
+import index from './vista/views/index.vue'
+import crearCuenta from './vista/views/crearCuenta.vue'
+import iniciarSesion from './vista/views/iniciarSesion.vue'
 
 Vue.use(Router)
 
