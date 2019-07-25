@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid p-0>
+    <v-container fluid pa-0>
         <v-toolbar style="background-color:#0099cc" app>
             <v-spacer></v-spacer>
             <router-link to="/crearCuenta"><v-btn color="#0099cc" class="elevation-0">Crear Cuenta</v-btn></router-link>
