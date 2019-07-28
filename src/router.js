@@ -4,6 +4,9 @@ import index from './vista/views/index.vue'
 import crearCuenta from './vista/views/crearCuenta.vue'
 import iniciarSesion from './vista/views/iniciarSesion.vue'
 import inicioPadre from './vista/views/inicioPadre.vue'
+//import inicioEstudiante from './vista/views/inicioEstudiante.vue'
+//import cronometro from './vista/views/cronometro.vue'
+import agregarEstudiante from './vista/views/agregarEstudiante.vue'
 
 Vue.use(Router)
 
@@ -32,6 +35,21 @@ export default new Router({
       path: '/inicioPadre',
       name: 'inicioPadre',
       component: inicioPadre
+    }, /*
+    {
+      path:'/inicioEstudiante',
+      name:'inicioEstudiante',
+      component: inicioEstudiante
+    },
+    {
+      path:'/cronometro',
+      name:'cronometro',
+      component: cronometro
+    },*/
+    {
+      path: '/agregarEstudiante',
+      name: 'agregarEstudiante',
+      component: agregarEstudiante
     }
   ]
 })

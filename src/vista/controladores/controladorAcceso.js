@@ -1,4 +1,5 @@
 import UsuarioController from "../../modelo/controladores/usuarioController";
+import router from "../../router";
 
 
 export default class ControladorAcceso{
@@ -8,7 +9,7 @@ export default class ControladorAcceso{
     registrarPadre(nombre,nombreUsuario,contrasena){
         let respuesta = this._controladorUsuario.registrarPadre(nombre,nombreUsuario,contrasena);
         alert(respuesta.mensaje);
-        if(respuesta.confirmacion) console.log("inisiar sesion");
+        if(respuesta.confirmacion) router.push('inicioPadre');
     }
     confirmarContrasena(contrasena1,contrasena2){
         return contrasena1 === contrasena2;
@@ -22,20 +23,12 @@ export default class ControladorAcceso{
         }
     }
     iniciarSesionPadre(nombreUsuario,contrasena){
-        let padre = this._controladorUsuario.autenticarPadre(nombreUsuario,contrasena);
-        if(padre == null){
-
-        }else{
-
-        }
+        let auth = this._controladorUsuario.autenticarPadre(nombreUsuario,contrasena);
+        if(auth) router.push('inicioPadre')
     }
     iniciarSesionEstudiante(nombreUsuario,contrasena){
-        let estudiante = this._controladorUsuario.autenticarEstudiante(nombreUsuario,contrasena);
-        if(estudiante == null){
-
-        }else{
-
-        }
+        let auth = this._controladorUsuario.autenticarEstudiante(nombreUsuario,contrasena);
+        //if(auth) router.push('inicioPadre')
     }
 
 }

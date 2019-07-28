@@ -31,9 +31,9 @@
                         <div class="my-2">
                             <v-btn small style="background-color:#0099cc" @click="esEstudiante=!esEstudiante">¿Eres padre?</v-btn>
                         </div>
-                        <v-flex><input type="text" placeholder="Nombre de Usuario"> </v-flex>
-                        <v-flex><input type="password" placeholder="Contraseña"> </v-flex>
-                        <v-flex><input class="button" type="submit" value="Entrar"> </v-flex>
+                        <v-flex><input v-model="nombreUsuario" type="text" placeholder="Nombre de Usuario"> </v-flex>
+                        <v-flex><input v-model="contrasena" type="password" placeholder="Contraseña"> </v-flex>
+                        <v-flex><input v-on:click="autenticar" class="button" type="submit" value="Entrar"> </v-flex>
                         <v-flex><div  style="color:black"> ¿No tienes cuenta? ¡Crea una aquí! </div>  </v-flex>
                     </v-layout>
                 </v-layout>
