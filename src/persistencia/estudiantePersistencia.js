@@ -1,4 +1,6 @@
-import Estudiante from "../modelo/logica/Estudiante";
+import Estudiante from "../modelo/logica/estudiante";
+
+
 
 export default class EstudiantePersistencia{
     guardar(estudiante=Estudiante,codPadre){

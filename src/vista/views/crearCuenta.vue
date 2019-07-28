@@ -28,11 +28,11 @@
                 <v-layout mt-5 class="formRegistro">
                     <v-layout justify-center align-center class="formcontainer" column>
                         <v-flex mt-3 justify-center align-center><div class="headline"> <v-icon class="fas fa-user" style="color:black"/> CREA UNA CUENTA</div> <br> </v-flex>
-                        <v-flex><input type="text" placeholder="Nombre"> </v-flex>
-                        <v-flex><input type="text" placeholder="Nombre de Usuario"> </v-flex>
-                        <v-flex><input type="password" placeholder="Contraseña"> </v-flex>
-                        <v-flex><input type="password" placeholder="Confirmar Contraseña"> </v-flex>
-                        <v-flex><input class="button" type="submit" value="Crear Cuenta"> </v-flex>
+                        <v-flex><input v-model="nombre" type="text" placeholder="Nombre"> </v-flex>
+                        <v-flex><input v-model="nombreUsuario" type="text" placeholder="Nombre de Usuario"> </v-flex>
+                        <v-flex><input v-model="contrasena" type="password" placeholder="Contraseña"> </v-flex>
+                        <v-flex><input v-model="contrasenaConfirmacion" type="password" placeholder="Confirmar Contraseña"> </v-flex>
+                        <v-flex><input v-on:click="registrar" class="button" type="submit" value="Crear Cuenta"> </v-flex>
                         <v-flex><div  style="color:black"> ¿Ya tienes cuenta? ¡Inicie sesion aquí! </div>  </v-flex>
                     </v-layout>
                 </v-layout>
@@ -42,8 +42,26 @@
 </template>
 
 <script>
+import ControladorAcceso from '../controladores/controladorAcceso';
 export default {
-    
+    data(){
+        return{
+            nombre:"",
+            nombreUsuario:"",
+            contrasena:"",
+            contrasenaConfirmacion:"",
+            controlador: new ControladorAcceso()
+        }
+    },
+    methods:{
+        registrar(){
+            if(this.controlador.confirmarContrasena(this.contrasena,this.contrasenaConfirmacion)){
+                this.controlador.registrarPadre(this.nombre,this.nombreUsuario,this.contrasena);   
+            }else{
+                console.log("las contraseñas no coinciden")
+            }
+        }
+    }
 }
 </script>
 

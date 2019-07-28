@@ -1,4 +1,5 @@
-import { Estudiante } from "./Estudiante";
+import Estudiante from "./estudiante";
+
 
 export default class Padre{
 

@@ -75,9 +75,9 @@
                         <div class="my-2">
                             <v-btn small style="background-color:#73d169" @click="esEstudiante=!esEstudiante">¿Eres estudiante?</v-btn>
                         </div>
-                        <v-flex><input type="text" placeholder="Nombre de Usuario"> </v-flex>
-                        <v-flex><input type="password" placeholder="Contraseña"> </v-flex>
-                        <v-flex><input class="button" type="submit" value="Entrar"> </v-flex>
+                        <v-flex><input v-model="nombreUsuario" type="text" placeholder="Nombre de Usuario"> </v-flex>
+                        <v-flex><input v-model="contrasena" type="password" placeholder="Contraseña"> </v-flex>
+                        <v-flex><input v-on:click="iniciarSecion" class="button" type="submit" value="Entrar"> </v-flex>
                         <v-flex><div  style="color:black"> ¿No tienes cuenta? ¡Crea una aquí! </div>  </v-flex>
                     </v-layout>
                 </v-layout>
@@ -87,10 +87,21 @@
 </template>
 
 <script>
+import ControladorAcceso from '../controladores/controladorAcceso';
+
 export default {
     data(){
         return{
-            esEstudiante:true
+            esEstudiante:true,
+            nombreUsuario:"",
+            contrasena:"",
+            controlador: new ControladorAcceso()
+        }
+    },
+    methods:{
+        iniciarSecion(){
+            if(this.esEstudiante) this.controlador.iniciarSesionEstudiante(this.nombreUsuario,this.contrasena);
+            else this.controlador.iniciarSesionPadre(this.nombreUsuario,this.contrasena);
         }
     }    
 }
