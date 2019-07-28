@@ -36,22 +36,22 @@ export default new Router({
       path: '/inicioPadre',
       name: 'inicioPadre',
       component: inicioPadre
-    }, 
+    }, /*
     {
       path:'/inicioEstudiante',
       name:'inicioEstudiante',
       component: inicioEstudiante
-    }, /*
+    }, 
     {
       path:'/cronometro',
       name:'cronometro',
       component: cronometro
-    },
+    },*/
     {
       path: '/agregarEstudiante',
       name: 'agregarEstudiante',
       component: agregarEstudiante
-    },*/
+    },
     {
       path: '/notificarPadre',
       name: 'notificarPadre',
