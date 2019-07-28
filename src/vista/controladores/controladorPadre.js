@@ -14,6 +14,6 @@ export default class ControladorPadre{
     }
     listarNotificaciones(usuario){
         let controlNotificacion = new NotificacionController(usuario);
-        return controlNotificacion.obtenerNotificaciones();
+        return controlNotificacion.obtenerNotificaciones(usuario);
     }
 }
