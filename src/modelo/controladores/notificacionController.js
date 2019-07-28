@@ -22,6 +22,5 @@ export default class NotificacionController{
         return this._sistemaControlNotificaciones.listaNotificaciones();
     }
     listarNotificaciones(){
-        return this._sistemaControlNotificaciones.listaNotificaciones;
     }
 }
