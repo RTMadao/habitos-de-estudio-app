@@ -13,8 +13,7 @@ export default class NotificacionController{
 
     anadirNotificacion(descripcion,codPadre,fechaEnviado,codEstudiante){
         let notificacion = this._sistemaControlNotificaciones.anadirNotificacion(descripcion,codPadre,fechaEnviado,codEstudiante);
-        this._notificacionPersistencia.guardar(notificacion)
-        return this._sistemaControlNotificaciones.listaNotificaciones;
+        this._notificacionPersistencia.guardar(notificacion);
     }
     eliminarNotificacion(codNotificacion){
         this._sistemaControlNotificaciones.eliminarNotificacion(codNotificacion);

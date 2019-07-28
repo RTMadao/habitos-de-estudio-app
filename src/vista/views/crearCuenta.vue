@@ -1,40 +1,67 @@
 <template>
-    <v-container justify-center align-center>
-        <v-toolbar app style=" background-color:#0099cc">
-            <v-icon class="fas fa-book-open" style="font-size:30px; color:#ffcc33" />
+    <v-container fluid pa-0 justify-center align-center>
+        <v-app-bar app style=" background-color:#0099cc">
+            <v-icon class="fas fa-book-open" style="font-size:30px; color:#FFFE03" />
             <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-card class="elevation-14" style="height:90%; margin-top:50px; background-color:#ccffff">
-            <v-layout>
-                <v-flex xs6>
-                    <v-carousel hide-controls xs6 >
-                        <v-carousel-item> <v-img src="https://images.justwatch.com/poster/19530374/s592" alt="img 1" /> </v-carousel-item>
-                        <v-carousel-item> <v-img src="https://images-na.ssl-images-amazon.com/images/I/81%2BB3qb13PL._SY679_.jpg" alt="img 2" /> </v-carousel-item>
-                        <v-carousel-item> <v-img src="https://d3ieicw58ybon5.cloudfront.net/ex/350.484/shop/product/bc56f3ef2f984fa4b68f9c66ba29303d.jpg" alt="img 3" /> </v-carousel-item>
-                    </v-carousel>
-                </v-flex>
-                <v-flex xs6 justify-center align-center>
-                    <div class="formRegistro">
-                        <div class="formcontainer">
-                            <div style="margin-top:20px" class="headline"> <v-icon class="fas fa-user" style="color:black"/> CREA UNA CUENTA</div> <br>
-                            <input type="text" placeholder="Nombre"> <br>
-                            <input type="text" placeholder="Nombre de Usuario"> <br>
-                            <input type="password" placeholder="Contraseña"> <br>
-                            <input type="password" placeholder="Confirmar Contraseña"> <br>
-                            <input class="button" type="submit" value="Crear Cuenta"> <br>
-                            <router-link class="color" to="/iniciarSesion"><div style="color:black"> ¿Ya tienes cuenta? ¡Inicie sesion aquí! </div> </router-link>
-                        </div>
-                    </div>
-                    
-                </v-flex>
-            </v-layout>
-        </v-card>
+        </v-app-bar>
+        <v-layout wrap mt-5 justify-center style="height:85%" >
+            <v-flex xs10 md4 class="elevation-14" style="background-color:#a5e6e6">
+                <v-carousel hide-delimiters hide-delimiter-background show-arrows-on-hover>
+                    <v-carousel-item>
+                        <v-layout align-center fill-height justify-center>
+                            <v-img src="https://ep01.epimg.net/internacional/imagenes/2017/06/08/mundo_global/1496905694_554768_1496906045_noticia_normal.jpg" alt="img 1" />
+                        </v-layout>
+                    </v-carousel-item>
+                    <v-carousel-item>
+                        <v-layout justify-center fill-height align-center>
+                            <div class="display-3"> HEEEEY </div>
+                        </v-layout>
+                    </v-carousel-item>
+                    <v-carousel-item>
+                        <v-layout justify-center fill-height align-center>
+                            <div class="display-2"> Para las recomendaciones :B </div>
+                        </v-layout>
+                    </v-carousel-item>
+                </v-carousel>
+            </v-flex>
+            <v-flex xs10 md4 style="background-color:#e6ffff" class="elevation-14" justify-center align-center>
+                <v-layout mt-5 class="formRegistro">
+                    <v-layout justify-center align-center class="formcontainer" column>
+                        <v-flex mt-3 justify-center align-center><div class="headline"> <v-icon class="fas fa-user" style="color:black"/> CREA UNA CUENTA</div> <br> </v-flex>
+                        <v-flex><input v-model="nombre" type="text" placeholder="Nombre"> </v-flex>
+                        <v-flex><input v-model="nombreUsuario" type="text" placeholder="Nombre de Usuario"> </v-flex>
+                        <v-flex><input v-model="contrasena" type="password" placeholder="Contraseña"> </v-flex>
+                        <v-flex><input v-model="contrasenaConfirmacion" type="password" placeholder="Confirmar Contraseña"> </v-flex>
+                        <v-flex><input v-on:click="registrar" class="button" type="submit" value="Crear Cuenta"> </v-flex>
+                        <v-flex><div  style="color:black"> ¿Ya tienes cuenta? ¡Inicie sesion aquí! </div>  </v-flex>
+                    </v-layout>
+                </v-layout>
+            </v-flex>
+        </v-layout>
     </v-container>
 </template>
 
 <script>
+import ControladorAcceso from '../controladores/controladorAcceso';
 export default {
-    
+    data(){
+        return{
+            nombre:"",
+            nombreUsuario:"",
+            contrasena:"",
+            contrasenaConfirmacion:"",
+            controlador: new ControladorAcceso()
+        }
+    },
+    methods:{
+        registrar(){
+            if(this.controlador.confirmarContrasena(this.contrasena,this.contrasenaConfirmacion)){
+                this.controlador.registrarPadre(this.nombre,this.nombreUsuario,this.contrasena);   
+            }else{
+                console.log("las contraseñas no coinciden")
+            }
+        }
+    }
 }
 </script>
 
@@ -61,7 +88,7 @@ input{
     background-color: white;
 }
 .button{
-    background-color: #ffcc33;
+    background-color: #ffcc33; /*FFFE03*/
     display: inline-block;
     margin-bottom: 6px;
     color: black;
