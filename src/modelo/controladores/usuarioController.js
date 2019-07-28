@@ -1,26 +1,32 @@
 import PadrePersistencia from "../../persistencia/padrePersistencia";
 import EstudiantePersistencia from "../../persistencia/estudiantePersistencia";
 import Padre from "../logica/padre";
-import { strict } from "assert";
 
 
 export default class UsuarioController{
     constructor(){
         this._padrePersistencia = new PadrePersistencia();
         this._estudiantePersistencia = new EstudiantePersistencia();
+        this._usuarioActivo = null;
     }
 
     registrarPadre(nombre,nombreUsuario,contrasena){
         let usuarioExistente = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
         if(usuarioExistente == null){
             let cod = this._padrePersistencia.cantidadPadres();
-            return this._padrePersistencia.guardar(new Padre(toString(cod),nombre,nombreUsuario,contrasena));
+            this._usuarioActivo = new Padre(toString(cod),nombre,nombreUsuario,contrasena);            
+            return this._padrePersistencia.guardar(this._usuarioActivo); //devuelve boolean si guarda correctamente en la base de datos
         }else{
             return {confirmacion: false, mensaje: "el nombre de usuario ya existe"};
         }
     }
     autenticarPadre(nombreUsuario,contrasena){
-        return this._padrePersistencia.autenticar(nombreUsuario,contrasena);
+        let auth = this._padrePersistencia.autenticar(nombreUsuario,contrasena);//devuelve boolean si corresponde el usuario con la contraseña
+        if(auth){
+            this._usuarioActivo = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
+            return true;
+        }
+        return false;
     }
     registrarEstudiante(codPadre,nombre,nombreUsuario,contrasena){
         let padre = this._padrePersistencia.buscar(codPadre);
