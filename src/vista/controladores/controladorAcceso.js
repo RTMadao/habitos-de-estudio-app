@@ -15,12 +15,7 @@ export default class ControladorAcceso{
         return contrasena1 === contrasena2;
     }
     registrarEstudiante(codPadre,nombre,nombreUsuario,contrasena){
-        let padre = this._controladorUsuario.registrarEstudiante(codPadre,nombre,nombreUsuario,contrasena);
-        if(padre == null){
-
-        }else{
-
-        }
+        //falta
     }
     iniciarSesionPadre(nombreUsuario,contrasena){
         let auth = this._controladorUsuario.autenticarPadre(nombreUsuario,contrasena);

@@ -1,14 +1,15 @@
-import SistemaNotificacion from "../model/sistemaNotificacion";
 import NotificacionPersistencia from "../../persistencia/notificacionPersistencia";
 import EstudiantePersistencia from "../../persistencia/estudiantePersistencia";
 import PadrePersistencia from "../../persistencia/padrePersistencia";
+import SistemaNotificacion from "../logica/sistemaNotificacion";
+import Padre from "../logica/padre";
 
 export default class NotificacionController{
-    constructor(codPadre){
+    constructor(padre=Padre){
         this._notificacionPersistencia = new NotificacionPersistencia();
         this._estudiantePersistencia = new EstudiantePersistencia();
         this._padrePersistencia = new PadrePersistencia();
-        this._sistemaControlNotificaciones = new SistemaNotificacion(this._notificacionPersistencia.listar(codPadre));
+        this._sistemaControlNotificaciones = new SistemaNotificacion(this._notificacionPersistencia.listar(padre.id));
     }
 
     anadirNotificacion(descripcion,codPadre,fechaEnviado,codEstudiante){
@@ -20,6 +21,7 @@ export default class NotificacionController{
         this._notificacionPersistencia.eliminar(codNotificacion);
         return this._sistemaControlNotificaciones.listaNotificaciones();
     }
-    listarNotificaciones(){
+    obtenerNotificaciones(padre=Padre){
+        return this._notificacionPersistencia.listaNotificaciones(padre.id);
     }
 }

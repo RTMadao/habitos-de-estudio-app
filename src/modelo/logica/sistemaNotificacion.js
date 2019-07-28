@@ -1,6 +1,6 @@
 import Padre from "./padre";
-import Estudiante from "./Estudiante";
 import Notificacion from "./notificacion";
+import Estudiante from "./estudiante";
 
 export default class SistemaNotificacion{
     constructor(lista){

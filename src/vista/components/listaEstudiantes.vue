@@ -8,14 +8,14 @@
                         <v-flex px-2 xs11 style="max-height:30px" v-for="(tarea,index) in estudiante.tareas" v-bind:key="index">
                             <v-flex v-if="tarea.hecha" >
                                 <v-flex v-if="tarea.verificada">
-                                    <div style="color:grey; text-decoration:line-through;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} </div>
+                                    <a style="color:grey; text-decoration:line-through;" v-bind:class="{seleccionado : tarea.id == seleccionada}" v-on:click="seleccionar(tarea.id)"> [{{tarea.fecha}} ] {{tarea.actividad}} en {{tarea.materia}} </a>
                                 </v-flex>
                                 <v-flex v-else>
-                                    <div style="color:grey;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} (Revisar) </div>
+                                    <a v-on:click="seleccionar(tarea.id)" style="color:grey;"> [{{tarea.fecha}} ] {{tarea.actividad}} en {{tarea.materia}} (Revisar) </a>
                                 </v-flex>
                             </v-flex>
                             <v-flex v-else>
-                                <div style="color:black;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} </div>
+                                <a v-on:click="seleccionar(tarea.id)" style="color:black;"> [{{tarea.fecha}} ] {{tarea.actividad}} en {{tarea.materia}} </a>
                             </v-flex>
                         </v-flex>
                     </v-layout>
@@ -30,66 +30,34 @@
 </template>
 
 <script>
-    
+import {mapState,mapMutations} from 'vuex';
+import ControladorPadre from '../controladores/controladorPadre';
+
 export default {
     data(){
         return{
-            estudiantes: [
-                {
-                    id:1,
-                    nombre: 'Gerardo',
-                    tareas:[
-                        {
-                            fecha: '27-07-2019',
-                            materia: 'Mate',
-                            tipoActividad: 'Tarea',
-                            hecha: false,
-                            verificada: false
-                        },
-                        {
-                            fecha: '27-07-2019',
-                            materia:'ingles',
-                            tipoActividad: 'Examen',
-                            hecha: false,
-                            verificada: false
-                        }
-                    ]
-                },
-                {
-                    id:2,
-                    nombre: 'Carlos',
-                    tareas:[
-                        {
-                            fecha: '27-07-2019',
-                            materia:'lengua',
-                            tipoActividad: 'Examen',
-                            hecha: true,
-                            verificada: false
-                        }
-                    ]
-                },
-                {
-                    id:3,
-                    nombre: 'Maria',
-                    tareas:[
-                        {
-                            fecha: '27-07-2019',
-                            materia:'economia',
-                            tipoActividad: 'Expo',
-                            hecha: false,
-                            verificada: false
-                        },
-                        {
-                            fecha: '27-07-2019',
-                            materia:'dibujo',
-                            tipoActividad:'Proyecto',
-                            hecha: true,
-                            verificada: true
-                        }
-                    ]
-                }
-            ],
+            estudiantes:[],
+            seleccionada:null
         }
+    },
+    computed:{
+        ...mapState(['usuarioActivo'])
+    },
+    methods:{
+        seleccionar(select){
+            this.seleccionada = select; 
+            console.log(select);
+        }
+    },
+    created(){
+        let controlador = new ControladorPadre()
+        this.estudiantes = controlador.listarEstudiantes(this.$store.state.usuarioActivo);
+        console.log(this.estudiantes);
     }
 }
 </script>
+<style scoped>
+.seleccionado{
+    color: darkblue;
+}
+</style>

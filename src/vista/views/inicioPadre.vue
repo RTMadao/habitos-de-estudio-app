@@ -31,7 +31,9 @@
 </template>
 
 <script>
-import listaEstudiantes from '../components/listaEstudiantes.vue'
+import listaEstudiantes from '../components/listaEstudiantes.vue';
+import {mapState} from 'vuex';
+import ControladorPadre from '../controladores/controladorPadre';
 
 export default {
     components:{
@@ -39,21 +41,15 @@ export default {
     },
     data(){
         return{
-            notificaciones:[
-                {
-                    estudiante: 'Gerardo',
-                    mensaje: 'We, help'
-                },
-                {
-                    estudiante: 'Maria',
-                    mensaje:'No se si deberia estar en un componente'
-                },
-                {
-                    estudiante: 'Carlos',
-                    mensaje:'Ayuda D:'
-                }
-            ]
+            notificaciones:[]
         }
+    },
+    computed:{
+        ...mapState(['usuarioActivo'])
+    },
+    created(){
+        let controlador = new ControladorPadre()
+        this.notificaciones = controlador.listarNotificaciones(this.$store.state.usuarioActivo);
     }
 }
 </script>
