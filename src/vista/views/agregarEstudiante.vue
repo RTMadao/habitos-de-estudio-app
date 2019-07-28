@@ -3,7 +3,7 @@
         <v-app-bar app style=" background-color:#0099cc">
             <v-icon class="fas fa-book-open" style="font-size:30px; color:#FFFE03" />
             <v-spacer></v-spacer>
-            <v-btn text @click="toIniciarSesion()"> <span class="fas fa-arrow-left"/> Inicia sesión</v-btn>
+            <v-btn text @click="toInicioPadre()"> <span class="fas fa-arrow-left"/> Volver </v-btn>
         </v-app-bar>
         <v-layout wrap mt-5 justify-center style="height:85%" >
             <v-flex xs10 md4 class="elevation-14" style="background-color:#a3f799">
