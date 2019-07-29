@@ -8,6 +8,7 @@ import inicioEstudiante from './vista/views/inicioEstudiante.vue'
 //import cronometro from './vista/views/cronometro.vue'
 import agregarEstudiante from './vista/views/agregarEstudiante.vue'
 import notificarPadre from './vista/views/notificarPadre.vue'
+import marcarTarea from './vista/views/marcarTarea.vue'
 
 Vue.use(Router)
 
@@ -56,6 +57,11 @@ export default new Router({
       path: '/notificarPadre',
       name: 'notificarPadre',
       component: notificarPadre
+    },
+    {
+      path: '/marcarTarea',
+      name: 'marcarTarea',
+      component: marcarTarea
     }
   ]
 })
