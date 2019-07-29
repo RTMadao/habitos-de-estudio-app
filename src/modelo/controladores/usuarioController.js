@@ -14,8 +14,10 @@ export default class UsuarioController{
         let usuarioExistente = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
         if(usuarioExistente == null){
             let cod = this._padrePersistencia.cantidadPadres();
-            this._usuarioActivo = new Padre(toString(cod),nombre,nombreUsuario,contrasena);            
-            return this._padrePersistencia.guardar(this._usuarioActivo); //devuelve boolean si guarda correctamente en la base de datos
+            console.log(cod);
+            this._usuarioActivo = new Padre(cod.toString(),nombre,nombreUsuario,contrasena);            
+            let resultado = this._padrePersistencia.guardar(this._usuarioActivo); //devuelve boolean si guarda correctamente en la base de datos
+            return resultado;
         }else{
             return {confirmacion: false, mensaje: "el nombre de usuario ya existe"};
         }
