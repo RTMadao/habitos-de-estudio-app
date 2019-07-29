@@ -7,10 +7,12 @@ export default class ControladorPadre{
     }
 
     listarEstudiantes(usuario){
-        console.log(usuario.nombre);
-        let respuesta = this._controlador.listarEstudiantes(usuario);
-        console.log(respuesta);
-        return respuesta;
+        return new Promise((resolve,reject) => {          
+            this._controlador.listarEstudiantes(usuario)
+            .then(lista => {
+                resolve(lista);
+            })
+        });
     }
     listarNotificaciones(usuario){
         let controlNotificacion = new NotificacionController(usuario);

@@ -3,7 +3,7 @@
         <v-app-bar app style="background-color:#0099cc">
             <v-icon class="fas fa-book-open" style="font-size:30px; color:#FFFE03" />
             <v-spacer></v-spacer>
-            <v-btn text @click="toAgregarEstudiante()">Agregar estudiante</v-btn>
+            <v-btn text @click="toAgregarEstudiante">Agregar estudiante</v-btn>
             <span> | </span>
             <v-btn text @click="toIndex()">Cerrar sesión</v-btn>
         </v-app-bar>
@@ -34,6 +34,7 @@
 import listaEstudiantes from '../components/listaEstudiantes.vue';
 import {mapState} from 'vuex';
 import ControladorPadre from '../controladores/controladorPadre';
+import router from '../../router';
 
 export default {
     components:{
@@ -42,6 +43,11 @@ export default {
     data(){
         return{
             notificaciones:[]
+        }
+    },
+    methods:{
+        toAgregarEstudiante(){
+            router.push('agregarEstudiante');
         }
     },
     computed:{

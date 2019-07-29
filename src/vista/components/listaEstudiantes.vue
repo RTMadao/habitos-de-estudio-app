@@ -51,8 +51,10 @@ export default {
     },
     created(){
         let controlador = new ControladorPadre()
-        this.estudiantes = controlador.listarEstudiantes(this.$store.state.usuarioActivo);
-        console.log(this.estudiantes);
+        controlador.listarEstudiantes(this.$store.state.usuarioActivo)
+        .then(lista => {
+            this.estudiantes = lista;
+        });
     }
 }
 </script>

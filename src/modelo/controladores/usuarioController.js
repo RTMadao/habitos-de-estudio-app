@@ -11,31 +11,50 @@ export default class UsuarioController{
     }
 
     registrarPadre(nombre,nombreUsuario,contrasena){
-        let usuarioExistente = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
-        if(usuarioExistente == null){
-            let cod = this._padrePersistencia.cantidadPadres();
-            console.log(cod);
-            this._usuarioActivo = new Padre(cod.toString(),nombre,nombreUsuario,contrasena);            
-            let resultado = this._padrePersistencia.guardar(this._usuarioActivo); //devuelve boolean si guarda correctamente en la base de datos
-            return resultado;
-        }else{
-            return {confirmacion: false, mensaje: "el nombre de usuario ya existe"};
-        }
+        return new Promise((resolve,reject) => {
+            let usuarioExistente = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
+            if(usuarioExistente == null){
+                this._padrePersistencia.cantidadPadres()
+                .then(conteo => {
+                    this._usuarioActivo = new Padre(conteo.toString(),nombre,nombreUsuario,contrasena);            
+                    return this._padrePersistencia.guardar(this._usuarioActivo); //devuelve boolean si guarda correctamente en la base de datos
+                })
+                .then(respuesta => {
+                    console.log(respuesta);
+                    resolve(respuesta);
+                });
+            }else{
+                reject({confirmacion: false, mensaje: "el nombre de usuario ya existe"});
+            }
+        });
     }
     autenticarPadre(nombreUsuario,contrasena){
-        let auth = this._padrePersistencia.autenticar(nombreUsuario,contrasena);//devuelve boolean si corresponde el usuario con la contraseña
-        if(auth){
-            this._usuarioActivo = this._padrePersistencia.buscarNombreUsuario(nombreUsuario);
-            return true;
-        }
-        return false;
+        return new Promise((resolve,reject) => {
+            this._padrePersistencia.autenticar(nombreUsuario,contrasena)//devuelve boolean si corresponde el usuario con la contraseña
+            .then(auth => {
+                console.log(auth);
+                if(auth) resolve(true);
+                else reject(false);
+            });
+        });
     }
     registrarEstudiante(codPadre,nombre,nombreUsuario,contrasena){
-        let padre = this._padrePersistencia.buscar(codPadre);
-        this._estudiantePersistencia.guardar(padre.registrarHijo(nombre,nombreUsuario,contrasena),padre.id);
-        return padre;
+        this._padrePersistencia.buscar(codPadre)
+        .then(padre => {
+            let padreM = new Padre("","","","");
+            padreM.copiar(padre);
+            let lista = padreM.registrarHijo(nombre,nombreUsuario,contrasena);
+            this._padrePersistencia.actualizar(padreM);
+        });
     }
     autenticarEstudiante(nombreUsuario,contrasena){
-        return this._estudiantePersistencia.autenticar(nombreUsuario,contrasena);
+        return new Promise((resolve,reject) => {
+            this._estudiantePersistencia.autenticar(nombreUsuario,contrasena)//devuelve boolean si corresponde el usuario con la contraseña
+            .then(res => {
+                console.log(res);
+                if(res.auth) resolve(res);
+                else reject(false);
+            });
+        });
     }
 }

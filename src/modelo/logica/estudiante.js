@@ -9,6 +9,16 @@ export default class Estudiante{
         this._listaActividades = [];
     }
 
+    copia(estudiante=Estudiante){
+        this._id = estudiante.id;
+        this._nombre = estudiante.nombre;
+        this._nombreUsuario = estudiante.nombreUsuario;
+        this._contrasena = estudiante.contrasena;
+        this._codPadre = estudiante.codPadre;
+        if(estudiante.listarActividades != undefined) this._listaActividades = estudiante.listarActividades;
+        
+    }
+
     get id(){
         return this._id;
     }
@@ -45,5 +55,19 @@ export default class Estudiante{
     }
     set listaActividades(value){
         this._listaActividades=value;
+    }
+
+    static listarDB(estudiante){
+        let cadena =[];
+        estudiante.listarActividades.forEach(actividad => {
+            cadena.push({
+                estado: actividad.estado,
+                fechaEntrega: actividad.fechaEntrega,
+                id: actividad.id,
+                materia: actividad.materia,
+                tarea: actividad.tarea,
+            });
+        });
+        return cadena;
     }
 }

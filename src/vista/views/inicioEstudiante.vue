@@ -21,14 +21,14 @@
                                     <v-flex px-2 xs11 style="max-height:30px" v-for="(tarea,index) in tareas" v-bind:key="index">
                                         <v-flex v-if="tarea.hecha" >
                                             <v-flex v-if="tarea.verificada">
-                                                <div style="color:grey; text-decoration:line-through;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} </div>
+                                                <div style="color:grey; text-decoration:line-through;"> [{{tarea.fechaEntrega}} ] {{tarea.tarea}} en {{tarea.materia}} </div>
                                             </v-flex>
                                             <v-flex v-else>
-                                                <div style="color:grey;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} (Revisar) </div>
+                                                <div style="color:grey;"> [{{tarea.fechaEntrega}} ] {{tarea.tarea}} en {{tarea.materia}} (Revisar) </div>
                                             </v-flex>
                                         </v-flex>
                                         <v-flex v-else>
-                                            <div style="color:black;"> [{{tarea.fecha}} ] {{tarea.tipoActividad}} en {{tarea.materia}} </div>
+                                            <div style="color:black;"> [{{tarea.fechaEntrega}} ] {{tarea.tarea}} en {{tarea.materia}} </div>
                                         </v-flex>
                                     </v-flex>
                                 </v-layout>
@@ -41,11 +41,11 @@
                     <v-card style="width:450px; height:320px" color="yellow">
                         <v-layout xs8 justify-center align-center class="formcontainer"  column>
                             <v-flex mt-3 justify-center align-center><div class="headline"> <v-icon class="fas fa-tasks" style="color:black"/> AGREGA UNA TAREA</div> <br> </v-flex>
-                            <v-flex><input v-model="tareaAgregar.fecha" type="date" placeholder="Fecha"> </v-flex>
-                            <v-flex mt-3> <textarea rows="3" cols="23" style="background-color:white; border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; border: 1px solid darkgrey" placeholder="Descripcion"> </textarea> </v-flex>
+                            <v-flex><input v-model="fecha" type="date" placeholder="Fecha"> </v-flex>
+                            <v-flex mt-3> <textarea v-model="actividad" rows="3" cols="23" style="background-color:white; border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; border: 1px solid darkgrey" placeholder="Descripcion"> </textarea> </v-flex>
                             <!--<v-flex><input v-model="actividad" type="-" > </v-flex>-->
-                            <v-flex><input v-model="tareaAgregar.materia" type="text" placeholder="Materia"> </v-flex>
-                            <v-flex><input class="button" type="submit" value="Agregar" style="font-color:yellow;border: 1px solid yellow; background-color: white;"> </v-flex>
+                            <v-flex><input v-model="materia" type="text" placeholder="Materia"> </v-flex>
+                            <v-flex><input v-on:click="agregarActividad" class="button" type="submit" value="Agregar" style="font-color:yellow;border: 1px solid yellow; background-color: white;"> </v-flex>
                         </v-layout> 
                     </v-card>
                 </v-layout>
@@ -55,32 +55,31 @@
 </template>
 <script>
 //import planeadorSemanal from '../components/planeadorSemanal.vue'
+import ControladorEstudiante from '../controladores/controladorEstudiante';
 export default {
     data(){
         return{
             selActividades:['investigación','taller','examen'],
-            tareaAgregar:{
-                fecha:'',
-                actividad:'',
-                materia:''
-            },
-            tareas:[
-                {
-                    fecha: '27-07-2019',
-                    materia:'economia',
-                    tipoActividad: 'Expo',
-                    hecha: false,
-                    verificada: false
-                },
-                {
-                    fecha: '27-07-2019',
-                    materia:'dibujo',
-                    tipoActividad:'Proyecto',
-                    hecha: true,
-                    verificada: true
-                }
-            ]
+            fecha:'',
+            actividad:'',
+            materia:'',
+            tareas:[]
         }
+    },
+    methods:{
+        agregarActividad(){
+            new ControladorEstudiante().agregarActividad(this.actividad,this.materia,this.fecha);
+            new ControladorEstudiante().listar()
+            .then(lista =>{
+                this.tareas = lista;
+            });
+        }
+    },
+    created(){
+        new ControladorEstudiante().listar()
+        .then(lista =>{
+            this.tareas = lista;
+        });
     }
 }
 </script>

@@ -3,7 +3,7 @@
         <v-app-bar app style=" background-color:#0099cc">
             <v-icon class="fas fa-book-open" style="font-size:30px; color:#FFFE03" />
             <v-spacer></v-spacer>
-            <v-btn text @click="toInicioPadre()"> <span class="fas fa-arrow-left"/> Volver </v-btn>
+            <v-btn text @click="toInicioPadre"> <span class="fas fa-arrow-left"/> Volver </v-btn>
         </v-app-bar>
         <v-layout wrap mt-5 justify-center style="height:85%" >
             <v-flex xs10 md4 class="elevation-14" style="background-color:#a3f799">
@@ -29,11 +29,11 @@
                 <v-layout mt-5 class="formRegistro">
                     <v-layout justify-center align-center class="formcontainer" column>
                         <v-flex mt-3 justify-center align-center><div class="headline"> <v-icon class="fas fa-child" style="color:black"/> AGREGA UN ESTUDIANTE</div> <br> </v-flex>
-                        <v-flex><input type="text" placeholder="Nombre"> </v-flex>
-                        <v-flex><input type="text" placeholder="Nombre de Usuario"> </v-flex>
-                        <v-flex><input type="password" placeholder="Contraseña"> </v-flex>
-                        <v-flex><input type="password" placeholder="Confirmar Contraseña"> </v-flex>
-                        <v-flex><input class="button" type="submit" value="Agregar estudiante"> </v-flex>
+                        <v-flex><input v-model="nombre" type="text" placeholder="Nombre"> </v-flex>
+                        <v-flex><input v-model="nombreUsuario" type="text" placeholder="Nombre de Usuario"> </v-flex>
+                        <v-flex><input v-model="contrasena" type="password" placeholder="Contraseña"> </v-flex>
+                        <v-flex><input v-model="contrasenaConfirmacion" type="password" placeholder="Confirmar Contraseña"> </v-flex>
+                        <v-flex><input v-on:click="registrar" class="button" type="submit" value="Agregar estudiante"> </v-flex>
                     </v-layout>
                 </v-layout>
             </v-flex>
@@ -42,7 +42,28 @@
 </template>
 
 <script>
+import ControladorAcceso from '../controladores/controladorAcceso';
 export default {
+    data(){
+        return{
+            nombre:"",
+            nombreUsuario:"",
+            contrasena:"",
+            contrasenaConfirmacion:"",
+            controlador: new ControladorAcceso()
+        }
+    },
+    methods:{
+        registrar(){
+            let validacionContrasena = this.controlador.confirmarContrasena(this.contrasena,this.contrasenaConfirmacion);
+            if(validacionContrasena){
+                this.controlador.registrarEstudiante(this.nombre,this.nombreUsuario,this.contrasena);
+            }
+        },
+        toInicioPadre(){
+            
+        }
+    }
     
 }
 </script>

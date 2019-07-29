@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    usuarioActivo : {nombre:'carlos',contrasena:'123'}
+    usuarioActivo : 'madao',
+    padreUsuario : 'el papa'
   },
   mutations: {
     asignarUsuario(state, usuario){
       state.usuarioActivo = usuario;
+    },
+    asignarPadre(state, padre){
+      state.padreUsuario = padre;
     }
   },
   actions: {

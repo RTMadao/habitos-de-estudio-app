@@ -22,6 +22,6 @@ export default class NotificacionController{
         return this._sistemaControlNotificaciones.listaNotificaciones();
     }
     obtenerNotificaciones(padre=Padre){
-        return this._notificacionPersistencia.listaNotificaciones(padre.id);
+        return this._notificacionPersistencia.listar(padre.id);
     }
 }

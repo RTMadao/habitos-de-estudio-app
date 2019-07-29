@@ -1,5 +1,6 @@
 import UsuarioController from "../../modelo/controladores/usuarioController";
 import router from "../../router";
+import store from "../../store";
 
 
 export default class ControladorAcceso{
@@ -7,23 +8,36 @@ export default class ControladorAcceso{
         this._controladorUsuario = new UsuarioController();
     }
     registrarPadre(nombre,nombreUsuario,contrasena){
-        let respuesta = this._controladorUsuario.registrarPadre(nombre,nombreUsuario,contrasena);
-        alert(respuesta.mensaje);
-        if(respuesta.confirmacion) router.push('inicioPadre');
+        this._controladorUsuario.registrarPadre(nombre,nombreUsuario,contrasena)
+        .then(respuesta => {
+            alert(respuesta.mensaje);
+            store.commit('asignarUsuario',nombreUsuario)
+            if(respuesta.confirmacion) router.push('inicioPadre');
+        });
     }
     confirmarContrasena(contrasena1,contrasena2){
         return contrasena1 === contrasena2;
     }
-    registrarEstudiante(codPadre,nombre,nombreUsuario,contrasena){
-        //falta
+    registrarEstudiante(nombre,nombreUsuario,contrasena){
+        this._controladorUsuario.registrarEstudiante(store.state.usuarioActivo,nombre,nombreUsuario,contrasena);
     }
     iniciarSesionPadre(nombreUsuario,contrasena){
-        let auth = this._controladorUsuario.autenticarPadre(nombreUsuario,contrasena);
-        if(auth) router.push('inicioPadre')
+        this._controladorUsuario.autenticarPadre(nombreUsuario,contrasena)
+        .then(auth => {
+            if(auth) router.push('inicioPadre');
+        });
+        store.commit('asignarUsuario',nombreUsuario)
     }
     iniciarSesionEstudiante(nombreUsuario,contrasena){
-        let auth = this._controladorUsuario.autenticarEstudiante(nombreUsuario,contrasena);
-        //if(auth) router.push('inicioPadre')
+        this._controladorUsuario.autenticarEstudiante(nombreUsuario,contrasena)
+        .then(res => {
+            if(res.auth){
+                router.push('inicioEstudiante');
+                store.commit('asignarUsuario',nombreUsuario);
+                store.commit('asignarPadre',res.padre);
+            }
+        });
+        
     }
 
 }

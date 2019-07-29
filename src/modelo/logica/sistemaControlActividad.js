@@ -1,11 +1,12 @@
-import Estudiante from "./Estudiante";
+import Estudiante from "./estudiante";
 import ActividadAcademica from "./actividadAcademica";
 
+
 export default class SistemaControlActividad{
-    anadirActividadAcademica(tarea,materia,fechaEntrega,estudiante=Estudiante){
-        let cod = estudiante.listaActividades.lenght;
+    anadirActividadAcademica(tarea,materia,fechaEntrega,estudiante){
+        let cod = estudiante.listarActividades.length;
         let id = estudiante.id + "A" + cod;
-        estudiante.listaActividades.push(new ActividadAcademica(id,tarea,materia,fechaEntrega));
+        estudiante.listarActividades.push(new ActividadAcademica(id,tarea,materia,fechaEntrega));
         return estudiante;
     }
     eliminarActividadAcademica(codActividad, estudiante=Estudiante){
