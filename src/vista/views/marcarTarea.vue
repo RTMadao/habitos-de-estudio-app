@@ -51,34 +51,4 @@ export default {
 </script>
 
 <style scoped>
-.formRegistro{
-    height:90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-input{
-    font-size: 20px;
-    width: 300px;
-    margin: 0px;
-    margin-top: 5%;
-    align-content: center;
-    text-align: center;
-    padding: 4px 0px;
-    border-radius:5px;
-    border: 1px solid darkgray;
-    background-color: white;
-}
-.button{
-    background-color: #ffcc33; /*FFFE03*/
-    display: inline-block;
-    margin-bottom: 6px;
-    color: black;
-    padding: 4px 0px;
-    width: 200px;
-    text-decoration: none;
-    border: 1px solid darkgray;
-}
 </style>
