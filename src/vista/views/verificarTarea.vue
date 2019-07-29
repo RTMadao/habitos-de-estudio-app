@@ -12,7 +12,7 @@
                         <div style="text-align:center; padding-top:6px; border-bottom: 1px solid #067cc4" class="display-1"> {{estudiante.nombre}} </div>
                         <v-flex px-2 my-2 xs11 v-for="(tarea,index) in estudiante.tareas" v-bind:key="index">
                                 <v-flex v-if="tarea.hecha && !tarea.verificada" >
-                                    <v-checkbox v-model="tarea.selected" color="blue" class="title" style="font-color:black" :label="`[${tarea.fecha.toString()}] ${tarea.descripcion} en ${tarea.materia}`"></v-checkbox>
+                                    <v-checkbox v-model="tarea.selected" color="green light" class="title" style="font-color:black" :label="`[${tarea.fecha.toString()}] ${tarea.descripcion} en ${tarea.materia}`"></v-checkbox>
                                 </v-flex>
                                 
                             </v-flex>
