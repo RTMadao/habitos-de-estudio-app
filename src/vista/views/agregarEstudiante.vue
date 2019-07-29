@@ -10,17 +10,17 @@
                 <v-carousel hide-delimiters hide-delimiter-background show-arrows-on-hover>
                     <v-carousel-item>
                         <v-layout align-center fill-height justify-center>
-                            <v-img src="https://www.ecured.cu/images/thumb/a/a4/Alpaca.jpg/260px-Alpaca.jpg" alt="img 1" />
+                            <div class="display-2"> No le asigne un usuario muy complicado. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-3"> HEEEEY </div>
+                            <div class="display-2"> No coloque una contraseña difícil de recordar para su hijo. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-2"> Para las recomendaciones :B </div>
+                            <div class="display-2"> Se recomienda que esté presente en la primera sesión para orientar al niño. </div>
                         </v-layout>
                     </v-carousel-item>
                 </v-carousel>

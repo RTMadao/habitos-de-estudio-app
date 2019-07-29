@@ -8,18 +8,13 @@
             <v-flex xs10 md4 class="elevation-14" style="background-color:#a5e6e6">
                 <v-carousel hide-delimiters hide-delimiter-background show-arrows-on-hover>
                     <v-carousel-item>
-                        <v-layout align-center fill-height justify-center>
-                            <v-img src="https://ep01.epimg.net/internacional/imagenes/2017/06/08/mundo_global/1496905694_554768_1496906045_noticia_normal.jpg" alt="img 1" />
+                        <v-layout justify-center fill-height align-center>
+                            <div class="display-3"> Asegúrese de que su hijo cuenta con un sitio de estudio bien iluminado, cómodo y libre de distracciones. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-3"> HEEEEY </div>
-                        </v-layout>
-                    </v-carousel-item>
-                    <v-carousel-item>
-                        <v-layout justify-center fill-height align-center>
-                            <div class="display-2"> Para las recomendaciones :B </div>
+                            <div class="display-2"> Al llegar a casa, verifique las tareas realizadas por su hijo. De esta forma sabemos que realmente las completó. </div>
                         </v-layout>
                     </v-carousel-item>
                 </v-carousel>

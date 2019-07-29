@@ -9,17 +9,17 @@
                 <v-carousel hide-delimiters hide-delimiter-background show-arrows-on-hover>
                     <v-carousel-item>
                         <v-layout align-center fill-height justify-center>
-                            <v-img src="https://i1.adis.ws/i/petsathome/breed-Husky-image-2.jpg?qlt=75" alt="img 1" />
+                            <div class="display-2"> No olvides tomar agua, estar hidratado ayuda a mejorar el rendimiento. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-3"> HEEEEY </div>
+                            <div class="display-2"> Durante las pausas puedes comer algo ligero y saludable, alguna fruta estaría más que bien. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-2"> Para las recomendaciones :B </div>
+                            <div class="display-2"> Estirate un poco entre cada ciclo, esto te ayudará a sentirte activo mientras estudias. </div>
                         </v-layout>
                     </v-carousel-item>
                 </v-carousel>
@@ -53,17 +53,17 @@
                 <v-carousel hide-delimiters hide-delimiter-background show-arrows-on-hover>
                     <v-carousel-item>
                         <v-layout align-center fill-height justify-center>
-                            <v-img src="https://ep01.epimg.net/internacional/imagenes/2017/06/08/mundo_global/1496905694_554768_1496906045_noticia_normal.jpg" alt="img 1" />
+                            <div class="display-2"> Recuerde que su acompañamientos es primordial para su hijo. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-3"> HEEEEY </div>
+                            <div class="display-2"> Cada noche, arregle junto con su hijo su sitio de estudio. Esto ayudará a que no tenga distracciones al momento de hacer sus tareas. </div>
                         </v-layout>
                     </v-carousel-item>
                     <v-carousel-item>
                         <v-layout justify-center fill-height align-center>
-                            <div class="display-2"> Para las recomendaciones :B </div>
+                            <div class="display-2"> Verifique las notificaciones frecuentemente. </div>
                         </v-layout>
                     </v-carousel-item>
                 </v-carousel>
