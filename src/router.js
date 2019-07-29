@@ -5,9 +5,10 @@ import crearCuenta from './vista/views/crearCuenta.vue'
 import iniciarSesion from './vista/views/iniciarSesion.vue'
 import inicioPadre from './vista/views/inicioPadre.vue'
 import inicioEstudiante from './vista/views/inicioEstudiante.vue'
-//import cronometro from './vista/views/cronometro.vue'
 import agregarEstudiante from './vista/views/agregarEstudiante.vue'
 import notificarPadre from './vista/views/notificarPadre.vue'
+import marcarTarea from './vista/views/marcarTarea.vue'
+import verificarTarea from './vista/views/verificarTarea.vue'
 
 Vue.use(Router)
 
@@ -41,12 +42,7 @@ export default new Router({
       path:'/inicioEstudiante',
       name:'inicioEstudiante',
       component: inicioEstudiante
-    }, 
-    /*{
-      path:'/cronometro',
-      name:'cronometro',
-      component: cronometro
-    },*/
+    },
     {
       path: '/agregarEstudiante',
       name: 'agregarEstudiante',
@@ -56,6 +52,16 @@ export default new Router({
       path: '/notificarPadre',
       name: 'notificarPadre',
       component: notificarPadre
+    },
+    {
+      path: '/marcarTarea',
+      name: 'marcarTarea',
+      component: marcarTarea
+    },
+    {
+      path: '/verificarTarea',
+      name: 'verificarTarea',
+      component: verificarTarea
     }
   ]
 })
