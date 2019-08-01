@@ -12,14 +12,7 @@ import 'firebase/firestore'
 Vue.config.productionTip = false
 Vue.use(VueFire)
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDbnvq2AKOxrkuTAPS_ylBL6_lNheFodv8",
-  authDomain: "vueisoft.firebaseapp.com",
-  databaseURL: "https://vueisoft.firebaseio.com",
-  projectId: "vueisoft",
-  storageBucket: "",
-  messagingSenderId: "888276932037"
-})
+firebase.initializeApp({})
 
 export const db = firebase.firestore()
 
